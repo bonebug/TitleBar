@@ -11,16 +11,15 @@ import java.lang.annotation.RetentionPolicy;
  * ＊
  */
 
-public class DrawableLocationConstant {
+public class ComponentLocationConstant {
     /**
      * 图片位置
      */
     public static  final int LEFT = 0;
     public static  final int CENTER = 1;
     public static  final int RIGHT = 2;
-    public static  final int CENTER_RIGHT = 3;
 
-    @IntDef({LEFT,CENTER,RIGHT,CENTER_RIGHT})
+    @IntDef({LEFT,CENTER,RIGHT})
     @Retention(RetentionPolicy.SOURCE)
-    public @interface DrawableLocation{}
+    public @interface ComponentLocation {}
 }

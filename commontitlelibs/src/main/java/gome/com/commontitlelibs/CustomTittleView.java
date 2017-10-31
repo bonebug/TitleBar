@@ -110,7 +110,7 @@ public final class CustomTittleView extends ConstraintLayout {
 
         //设置左侧的图片
         if (leftTextDrawable != null) {
-            setTextViewDrawable(DrawableLocationConstant.LEFT, leftTextDrawable, DrawableLocationConstant.LEFT);
+            setTextViewDrawable(ComponentLocationConstant.LEFT, leftTextDrawable, ComponentLocationConstant.LEFT);
         }
 
     }
@@ -199,17 +199,17 @@ public final class CustomTittleView extends ConstraintLayout {
     /**
      * 设置 公共tittle 显示
      */
-    private void setViewVisiable(@DrawableLocationConstant.DrawableLocation int type) {
+    private void setViewVisiable(@ComponentLocationConstant.ComponentLocation int type) {
         setVisibility(VISIBLE);
         if (!isCustomTittle) {
             switch (type) {
-                case DrawableLocationConstant.LEFT:
+                case ComponentLocationConstant.LEFT:
                     mLeftTextView.setVisibility(VISIBLE);
                     break;
-                case DrawableLocationConstant.CENTER:
+                case ComponentLocationConstant.CENTER:
                     mCenterTextView.setVisibility(VISIBLE);
                     break;
-                case DrawableLocationConstant.RIGHT:
+                case ComponentLocationConstant.RIGHT:
                     mRightTextView.setVisibility(VISIBLE);
                     break;
                 default:
@@ -227,17 +227,17 @@ public final class CustomTittleView extends ConstraintLayout {
      * @param drawableLocation 0: left 1:right
      *                         图片位置
      */
-    public void setTextViewDrawable(int viewType, Drawable drawable,@DrawableLocationConstant.DrawableLocation int drawableLocation) {
+    public void setTextViewDrawable(int viewType, Drawable drawable,@ComponentLocationConstant.ComponentLocation int drawableLocation) {
         drawable = getAvailableDrawable(drawable);
         setViewVisiable(viewType);
         switch (viewType) {
-            case DrawableLocationConstant.LEFT:
+            case ComponentLocationConstant.LEFT:
                 setTextViewDrawableWithLocation(mLeftTextView, drawable, drawableLocation);
                 break;
-            case DrawableLocationConstant.CENTER:
+            case ComponentLocationConstant.CENTER:
                 setTextViewDrawableWithLocation(mCenterTextView, drawable, drawableLocation);
                 break;
-            case DrawableLocationConstant.RIGHT:
+            case ComponentLocationConstant.RIGHT:
                 setTextViewDrawableWithLocation(mRightTextView, drawable, drawableLocation);
                 break;
             default:
@@ -254,17 +254,17 @@ public final class CustomTittleView extends ConstraintLayout {
      * @param drawableLocation 0: left 1:right
      *                         图片位置
      */
-    public void setTextViewDrawableResource(int viewType, @DrawableRes int drawableId, @DrawableLocationConstant.DrawableLocation int drawableLocation) {
+    public void setTextViewDrawableResource(int viewType, @DrawableRes int drawableId, @ComponentLocationConstant.ComponentLocation int drawableLocation) {
         Drawable drawable = getViewDrawable(drawableId);
         setViewVisiable(viewType);
         switch (viewType) {
-            case DrawableLocationConstant.LEFT:
+            case ComponentLocationConstant.LEFT:
                 setTextViewDrawableWithLocation(mLeftTextView, drawable, drawableLocation);
                 break;
-            case DrawableLocationConstant.CENTER:
+            case ComponentLocationConstant.CENTER:
                 setTextViewDrawableWithLocation(mCenterTextView, drawable, drawableLocation);
                 break;
-            case DrawableLocationConstant.RIGHT:
+            case ComponentLocationConstant.RIGHT:
                 setTextViewDrawableWithLocation(mRightTextView, drawable, drawableLocation);
                 break;
             default:
@@ -280,12 +280,12 @@ public final class CustomTittleView extends ConstraintLayout {
      * @param drawable
      * @param drawableLocation
      */
-    private void setTextViewDrawableWithLocation(TextView view, Drawable drawable,@DrawableLocationConstant.DrawableLocation int drawableLocation) {
+    private void setTextViewDrawableWithLocation(TextView view, Drawable drawable,@ComponentLocationConstant.ComponentLocation int drawableLocation) {
         switch (drawableLocation) {
-            case DrawableLocationConstant.LEFT:
+            case ComponentLocationConstant.LEFT:
                 view.setCompoundDrawables(drawable, null, null, null); // 设置左图标
                 break;
-            case DrawableLocationConstant.RIGHT:
+            case ComponentLocationConstant.RIGHT:
                 view.setCompoundDrawables(null, null, drawable, null); // 设置右图标
                 break;
             default:
@@ -539,12 +539,12 @@ public final class CustomTittleView extends ConstraintLayout {
      */
     public void setLeftViewLeftDrawable(@DrawableRes int drawableID) {
         setVisibility(View.VISIBLE);
-        setTextViewDrawableResource(DrawableLocationConstant.LEFT, drawableID, DrawableLocationConstant.LEFT); // 设置左图标
+        setTextViewDrawableResource(ComponentLocationConstant.LEFT, drawableID, ComponentLocationConstant.LEFT); // 设置左图标
     }
 
     public void setLeftViewTextAndLeftDrawable(String str,int drawableID) {
         setTextViewText(mLeftTextView,str);
-        setTextViewDrawableResource(DrawableLocationConstant.LEFT, drawableID, DrawableLocationConstant.LEFT); // 设置左图标
+        setTextViewDrawableResource(ComponentLocationConstant.LEFT, drawableID, ComponentLocationConstant.LEFT); // 设置左图标
 
     }
 
@@ -555,7 +555,7 @@ public final class CustomTittleView extends ConstraintLayout {
      */
     public void setRightViewRightDrawable(@DrawableRes int drawableID) {
         setVisibility(View.VISIBLE);
-        setTextViewDrawableResource(DrawableLocationConstant.RIGHT, drawableID, DrawableLocationConstant.RIGHT); // 设置左图标
+        setTextViewDrawableResource(ComponentLocationConstant.RIGHT, drawableID, ComponentLocationConstant.RIGHT); // 设置左图标
     }
 
     /**
@@ -571,7 +571,7 @@ public final class CustomTittleView extends ConstraintLayout {
 
         setRightTitleText(str);
 
-        setTextViewDrawableResource(DrawableLocationConstant.RIGHT, drawableID, DrawableLocationConstant.LEFT); // 设置左图标
+        setTextViewDrawableResource(ComponentLocationConstant.RIGHT, drawableID, ComponentLocationConstant.LEFT); // 设置左图标
 
     }
 
@@ -582,12 +582,12 @@ public final class CustomTittleView extends ConstraintLayout {
      */
     public void setCenterViewRightDrawable(@DrawableRes int drawableID) {
 
-        setTextViewDrawableResource(DrawableLocationConstant.CENTER, drawableID, DrawableLocationConstant.RIGHT);
+        setTextViewDrawableResource(ComponentLocationConstant.CENTER, drawableID, ComponentLocationConstant.RIGHT);
     }
 
     public void setCenterViewTextAndRightDrawable(String  str, int drawableID) {
         setTextViewText(mCenterRightView, str);
-        setTextViewDrawableResource(DrawableLocationConstant.CENTER, drawableID, DrawableLocationConstant.RIGHT);
+        setTextViewDrawableResource(ComponentLocationConstant.CENTER, drawableID, ComponentLocationConstant.RIGHT);
     }
 
 
