@@ -9,7 +9,6 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import gome.com.commontitlelibs.CustomTittleView;
-import gome.com.commonutilslibs.DensityUtil;
 
 public class MainActivity extends AppCompatActivity {
     private CustomTittleView tittleView;
@@ -33,7 +32,6 @@ public class MainActivity extends AppCompatActivity {
         tittleView.setLeftTittleText(leftTitle);
         tittleView.setBackgroundColor(Color.GRAY);
         tittleView.setLeftViewLeftDrawable(R.drawable.ic_message_back_arrow);
-        tittleView.getLeftView().setCompoundDrawablePadding(DensityUtil.dip2px(MainActivity.this,10));
 
         tittleView.setCenterLeftViewText("关闭");
         leftTextET = findViewById(R.id.et_leftviewtext);
