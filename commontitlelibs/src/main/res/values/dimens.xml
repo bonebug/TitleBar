@@ -1,0 +1,4 @@
+<resources>
+<!-- title 中部控件的宽度 -->
+    <dimen name="title_centertext_maxwidth">240dp</dimen>
+</resources>

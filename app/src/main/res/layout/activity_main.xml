@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="bone.com.myconstaintlayoutshowdemos.MainActivity">
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="Title 展示"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:gravity="center_vertical"
+        android:paddingLeft="15dp"
+        android:textSize="18sp"
+        android:textColor="@color/colorAccent"
+        android:background="#45bdbdbd"
+        />
+
+    <gome.com.commontitlelibs.CustomTittleView
+        android:id="@+id/ctv_title"
+        android:layout_width="0dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <!--  title 编辑相关的view   -->
+
+    <TextView
+        android:id="@+id/tv_leftviewtext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="16dp"
+        android:text="左侧文本:"
+        android:textSize="16sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ctv_title" />
+
+    <Button
+        android:id="@+id/btn_leftviewtext_commit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="提交"
+        app:layout_constraintBaseline_toBaselineOf="@id/tv_leftviewtext"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ctv_title" />
+
+    <EditText
+        android:id="@+id/et_leftviewtext"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp"
+        android:hint="左侧文本"
+        android:maxLines="1"
+        android:textColor="@color/black"
+        app:layout_constraintBaseline_toBaselineOf="@id/tv_leftviewtext"
+        app:layout_constraintEnd_toStartOf="@id/btn_leftviewtext_commit"
+        app:layout_constraintLeft_toRightOf="@id/tv_leftviewtext"
+        app:layout_constraintTop_toBottomOf="@id/ctv_title" />
+
+
+    <TextView
+        android:id="@+id/tv_centerleftviewtext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="16dp"
+        android:text="中左文本:"
+        android:textSize="16sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_leftviewtext_commit" />
+
+    <Button
+        android:id="@+id/btn_centerleftviewtext_commit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="提交"
+        app:layout_constraintBaseline_toBaselineOf="@id/tv_centerleftviewtext"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_leftviewtext_commit" />
+
+    <EditText
+        android:id="@+id/et_centerleftviewtext"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp"
+        android:hint="中左文本"
+        android:maxLines="1"
+        android:textColor="@color/black"
+        app:layout_constraintBaseline_toBaselineOf="@id/tv_centerleftviewtext"
+        app:layout_constraintEnd_toStartOf="@id/btn_centerleftviewtext_commit"
+        app:layout_constraintLeft_toRightOf="@id/tv_centerleftviewtext"
+        app:layout_constraintTop_toBottomOf="@id/btn_leftviewtext_commit" />
+
+
+    <TextView
+        android:id="@+id/tv_centerviewtext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="16dp"
+        android:text="中间文本:"
+        android:textSize="16sp"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintHorizontal_weight="1.2"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/et_centerviewtext"
+        app:layout_constraintTop_toBottomOf="@id/btn_centerleftviewtext_commit" />
+
+    <EditText
+        android:id="@+id/et_centerviewtext"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:hint="中间文本"
+        android:maxLines="1"
+        android:textColor="@color/black"
+        app:layout_constraintBaseline_toBaselineOf="@id/tv_centerviewtext"
+        app:layout_constraintHorizontal_weight="3"
+        app:layout_constraintLeft_toRightOf="@id/tv_centerviewtext"
+        app:layout_constraintRight_toLeftOf="@+id/btn_centerviewtext_commit"
+        app:layout_constraintTop_toBottomOf="@id/btn_centerleftviewtext_commit" />
+
+    <Button
+        android:id="@+id/btn_centerviewtext_commit"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="提交"
+        app:layout_constraintBaseline_toBaselineOf="@id/tv_centerviewtext"
+        app:layout_constraintHorizontal_weight="1.2"
+        app:layout_constraintLeft_toRightOf="@id/et_centerviewtext"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_centerleftviewtext_commit" />
+
+    <TextView
+        android:id="@+id/tv_centerrightviewtext"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="16dp"
+        android:text="中右文本:"
+        android:textSize="16sp"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintHorizontal_weight="1.2"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/et_centerrightviewtext"
+        app:layout_constraintTop_toBottomOf="@id/btn_centerviewtext_commit" />
+
+    <EditText
+        android:id="@+id/et_centerrightviewtext"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:hint="中右文本"
+        android:maxLines="1"
+        android:textColor="@color/black"
+        app:layout_constraintBaseline_toBaselineOf="@id/tv_centerrightviewtext"
+        app:layout_constraintHorizontal_weight="3"
+        app:layout_constraintLeft_toRightOf="@+id/tv_centerrightviewtext"
+        app:layout_constraintRight_toLeftOf="@+id/btn_centerrightviewtext_commit"
+        app:layout_constraintTop_toBottomOf="@id/btn_centerviewtext_commit" />
+
+    <Button
+        android:id="@+id/btn_centerrightviewtext_commit"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="提交"
+        app:layout_constraintBaseline_toBaselineOf="@id/tv_centerrightviewtext"
+        app:layout_constraintHorizontal_weight="1.2"
+        app:layout_constraintLeft_toRightOf="@+id/et_centerrightviewtext"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_centerviewtext_commit" />
+
+
+    <TextView
+        android:id="@+id/tv_rightviewtext"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="16dp"
+        android:text="右侧文本:"
+        android:textSize="16sp"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintHorizontal_weight="1.2"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/et_rightviewtext"
+        app:layout_constraintTop_toBottomOf="@id/btn_centerrightviewtext_commit" />
+
+
+    <EditText
+        android:id="@+id/et_rightviewtext"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:hint="右侧文本"
+        android:maxLines="1"
+        android:textColor="@color/black"
+        app:layout_constraintBaseline_toBaselineOf="@id/tv_rightviewtext"
+        app:layout_constraintHorizontal_weight="3"
+        app:layout_constraintLeft_toRightOf="@id/tv_rightviewtext"
+        app:layout_constraintRight_toLeftOf="@+id/btn_rightviewtext_commit"
+        app:layout_constraintTop_toBottomOf="@id/btn_centerrightviewtext_commit" />
+
+    <Button
+        android:id="@+id/btn_rightviewtext_commit"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="提交"
+        app:layout_constraintBaseline_toBaselineOf="@id/tv_rightviewtext"
+        app:layout_constraintHorizontal_weight="1.2"
+        app:layout_constraintLeft_toRightOf="@id/et_rightviewtext"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_centerrightviewtext_commit" />
+
+
+    <View
+        android:layout_width="1dp"
+        android:layout_height="0dp"
+        android:background="@color/colorAccent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+</android.support.constraint.ConstraintLayout>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/MyConstaintLayoutShowDemos.iml" filepath="$PROJECT_DIR$/MyConstaintLayoutShowDemos.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/commontitlelibs/commontitlelibs.iml" filepath="$PROJECT_DIR$/commontitlelibs/commontitlelibs.iml" />
+      <module fileurl="file://$PROJECT_DIR$/commonutilslibs/commonutilslibs.iml" filepath="$PROJECT_DIR$/commonutilslibs/commonutilslibs.iml" />
+      <module fileurl="file://$PROJECT_DIR$/gometextview/gometextview.iml" filepath="$PROJECT_DIR$/gometextview/gometextview.iml" />
+    </modules>
+  </component>
+</project>

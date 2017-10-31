@@ -1,0 +1,4 @@
+<resources>
+    <!-- W720 -->
+    <dimen name="title_centertext_maxwidth">240dp</dimen>
+</resources>
