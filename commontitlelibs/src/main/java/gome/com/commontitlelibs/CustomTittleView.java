@@ -214,33 +214,6 @@ public final class CustomTittleView extends ConstraintLayout {
 
 
     /**
-     * 设置右侧文本的左侧的图片
-     *
-     * @param viewLocation     修改视图的位置
-     * @param drawableId       图片ID
-     * @param drawableLocation 图片位置
-     */
-    public void setTextViewDrawableResource(@ComponentLocationConstant.ComponentLocation int viewLocation, @DrawableRes int drawableId, @ComponentLocationConstant.ComponentLocation int drawableLocation) {
-        Drawable drawable = getViewDrawable(drawableId);
-        setViewVisiable(viewLocation);
-        switch (viewLocation) {
-            case ComponentLocationConstant.LEFT:
-                setTextViewDrawableWithLocation(mLeftTextView, drawable, drawableLocation);
-                break;
-            case ComponentLocationConstant.CENTER:
-                setTextViewDrawableWithLocation(mCenterTextView, drawable, drawableLocation);
-                break;
-            case ComponentLocationConstant.RIGHT:
-                setTextViewDrawableWithLocation(mRightTextView, drawable, drawableLocation);
-                break;
-            default:
-                break;
-        }
-
-    }
-
-
-    /**
      * 设置左侧文本的颜色
      *
      * @param viewLocation 操作控件的位置
@@ -342,6 +315,33 @@ public final class CustomTittleView extends ConstraintLayout {
     }
 
     /**
+     * 设置右侧文本的左侧的图片
+     *
+     * @param viewLocation     修改视图的位置
+     * @param drawableId       图片ID
+     * @param drawableLocation 图片位置
+     */
+    public CustomTittleView setTextViewDrawableResource(@ComponentLocationConstant.ComponentLocation int viewLocation, @DrawableRes int drawableId, @ComponentLocationConstant.ComponentLocation int drawableLocation) {
+        Drawable drawable = getViewDrawable(drawableId);
+        setViewVisiable(viewLocation);
+        switch (viewLocation) {
+            case ComponentLocationConstant.LEFT:
+                setTextViewDrawableWithLocation(mLeftTextView, drawable, drawableLocation);
+                break;
+            case ComponentLocationConstant.CENTER:
+                setTextViewDrawableWithLocation(mCenterTextView, drawable, drawableLocation);
+                break;
+            case ComponentLocationConstant.RIGHT:
+                setTextViewDrawableWithLocation(mRightTextView, drawable, drawableLocation);
+                break;
+            default:
+                break;
+        }
+
+        return  this;
+    }
+
+    /**
      * 左侧的图片
      *
      * @param drawableID 图片对应的ID
@@ -356,34 +356,6 @@ public final class CustomTittleView extends ConstraintLayout {
         setTextViewDrawableResource(ComponentLocationConstant.LEFT, drawableID, ComponentLocationConstant.LEFT); // 设置左图标
 
     }
-
-    /**
-     * 设置右侧文本的图片 默认图片在左侧
-     *
-     * @param drawableID 图片对应的ID
-     */
-    public void setRightViewRightDrawable(@DrawableRes int drawableID) {
-        setVisibility(View.VISIBLE);
-        setTextViewDrawableResource(ComponentLocationConstant.RIGHT, drawableID, ComponentLocationConstant.RIGHT); // 设置左图标
-    }
-
-    /**
-     * 设置右侧文本 及 对应图标(图标默认在左侧)
-     *
-     * @param str        文本内容
-     * @param drawableID 文本对应的ID
-     */
-
-    public void setRightTextAndLeftDrawable(String str, @DrawableRes int drawableID) {
-
-        setVisibility(View.VISIBLE);
-
-        setTextViewText(mRightTextView,str);
-
-        setTextViewDrawableResource(ComponentLocationConstant.RIGHT, drawableID, ComponentLocationConstant.LEFT); // 设置左图标
-
-    }
-
     /**
      * 设置中间文本的右侧图片
      *
