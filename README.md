@@ -14,8 +14,8 @@
 |commontitlelibs| 封装的TitleBar控件
 |commonutilslibs| 存在一些简单的常用工具类，此处现在还不完善里面东西比较少 后续会扩充
 |gometextview| TextView相关的一个组件库，目前含有偷的一个可展开的TextView,一个简单的处理了就API带来的一些BUG（这个控件很简单不细说了 瞅一眼就知道了） 
-##以下为TitleBar的相关属性
-<br>
+## 以下为TitleBar的相关属性
+
 **常量类--注解代替枚举类而已 ---主要操作的是哪个控件/哪个位置**
 |常量名|描述|
 |---|---|
