@@ -79,6 +79,7 @@
         app:layout_constraintWidth_max="50dp"
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"
+        app:layout_constraintHorizontal_bias="1"
         />
     <gome.com.gometextview.GomeTextView
         android:id="@+id/centertext_left"

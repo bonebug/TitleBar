@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/MyConstaintLayoutShowDemos.iml" filepath="$PROJECT_DIR$/MyConstaintLayoutShowDemos.iml" />
+      <module fileurl="file://$PROJECT_DIR$/TitleBar.iml" filepath="$PROJECT_DIR$/TitleBar.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/commontitlelibs/commontitlelibs.iml" filepath="$PROJECT_DIR$/commontitlelibs/commontitlelibs.iml" />
       <module fileurl="file://$PROJECT_DIR$/commonutilslibs/commonutilslibs.iml" filepath="$PROJECT_DIR$/commonutilslibs/commonutilslibs.iml" />

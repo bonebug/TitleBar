@@ -29,7 +29,7 @@ public final class CustomTittleView extends ConstraintLayout {
      * todo 默认的左侧图片ID   一般为返回按钮 不同APP集成需修改图片
      */
     private int defaultLeftDrawableID = R.drawable.icon_back_white;
-    private GomeTextView mLeftTextView, mCenterTextView, mRightTextView, mCenterRightView,mCenterLeftView;
+    private GomeTextView mLeftTextView, mCenterTextView, mRightTextView, mCenterRightView, mCenterLeftView;
     /**
      * 自定义的tittle 对应的view
      */
@@ -50,7 +50,6 @@ public final class CustomTittleView extends ConstraintLayout {
     private View customView;
 
 
-
     public CustomTittleView(Context context, AttributeSet attrs) {
         super(context, attrs);
         View.inflate(context, R.layout.base_title, this);
@@ -59,21 +58,21 @@ public final class CustomTittleView extends ConstraintLayout {
                 R.styleable.CustomTittleView, 0, 0);
 
         String leftTextStr = a.getString(R.styleable.CustomTittleView_leftTextText);
-        float leftTextSize = a.getDimension(R.styleable.CustomTittleView_leftTextTextSize,16);
+        float leftTextSize = a.getDimension(R.styleable.CustomTittleView_leftTextTextSize, 16);
 
         String centerTextStr = a.getString(R.styleable.CustomTittleView_centerTextText);
-        float centerTextSize = a.getDimension(R.styleable.CustomTittleView_centerTextTextSize,18);
+        float centerTextSize = a.getDimension(R.styleable.CustomTittleView_centerTextTextSize, 18);
 
         String rightTextStr = a.getString(R.styleable.CustomTittleView_rightTextText);
-        float rightTextSize = a.getDimension(R.styleable.CustomTittleView_rightTextTextSize,16);
+        float rightTextSize = a.getDimension(R.styleable.CustomTittleView_rightTextTextSize, 16);
 
         String centerRightTextStr = a.getString(R.styleable.CustomTittleView_centerRightText);
-        float centerRightTextSize = a.getDimension(R.styleable.CustomTittleView_centerRightTextTextSize,12);
+        float centerRightTextSize = a.getDimension(R.styleable.CustomTittleView_centerRightTextTextSize, 12);
 
         String centerLeftTextStr = a.getString(R.styleable.CustomTittleView_centerRightText);
-        float centerLeftTextSize = a.getDimension(R.styleable.CustomTittleView_centerRightTextTextSize,12);
+        float centerLeftTextSize = a.getDimension(R.styleable.CustomTittleView_centerRightTextTextSize, 12);
 
-        Drawable  leftTextDrawable = a.getDrawable(R.styleable.CustomTittleView_leftTextDrawable);
+        Drawable leftTextDrawable = a.getDrawable(R.styleable.CustomTittleView_leftTextDrawable);
 
 
         a.recycle();
@@ -103,7 +102,7 @@ public final class CustomTittleView extends ConstraintLayout {
         }
         mCenterRightView.setTextSize(centerRightTextSize);
 
-        if (!TextUtils.isEmpty(centerLeftTextStr)){
+        if (!TextUtils.isEmpty(centerLeftTextStr)) {
             mCenterLeftView.setText(centerLeftTextStr);
         }
         mCenterLeftView.setTextSize(centerLeftTextSize);
@@ -116,24 +115,15 @@ public final class CustomTittleView extends ConstraintLayout {
     }
 
     /**
-     * 获取整体view 在此可以设置背景
-     *
-     * @return
-     */
-    public CustomTittleView getTittleView() {
-        return this;
-    }
-
-    /**
      * 页面初始化
      */
     private void init() {
-        mLeftTextView =  findViewById(R.id.base_left);
-        mCenterTextView =  findViewById(R.id.centertext);
-        mRightTextView =  findViewById(R.id.base_right);
-        mCustomTittle =  findViewById(R.id.fl_basetittle_content);
-        mCenterRightView =  findViewById(R.id.centertext_right);
-        mCenterLeftView =  findViewById(R.id.centertext_left);
+        mLeftTextView = findViewById(R.id.base_left);
+        mCenterTextView = findViewById(R.id.centertext);
+        mRightTextView = findViewById(R.id.base_right);
+        mCustomTittle = findViewById(R.id.fl_basetittle_content);
+        mCenterRightView = findViewById(R.id.centertext_right);
+        mCenterLeftView = findViewById(R.id.centertext_left);
     }
 
     /**
@@ -145,7 +135,7 @@ public final class CustomTittleView extends ConstraintLayout {
         if (view != null) {
             showCustomTittle();
             if (view.getParent() != null) {
-                ((ViewGroup) view.getParent()).removeAllViews();
+                ((ViewGroup) view.getParent()).removeView(view);
             }
             mCustomTittle.addView(view);
             this.customView = view;
@@ -183,17 +173,249 @@ public final class CustomTittleView extends ConstraintLayout {
     }
 
     /**
-     * 获取中间偏右侧的文本view
+     * 获取左侧的view
      *
      * @return
      */
-    public TextView getCenterRightView() {
+    public TextView getLeftView() {
+        return mLeftTextView;
+    }
+
+    public GomeTextView getCenterLeftView() {
+        return mCenterLeftView;
+    }
+
+    /**
+     * 获取中间view
+     *
+     * @return
+     */
+    public TextView getCenterView() {
+        return mCenterTextView;
+    }
+
+    /**
+     * 获取中右侧的文本控件
+     *
+     * @return
+     */
+    public TextView getCenterRightTextView() {
         return mCenterRightView;
     }
 
+    /**
+     * 获取右侧的view
+     *
+     * @return
+     */
+    public TextView getRightView() {
+        return mRightTextView;
+    }
 
-    public GomeTextView getmCenterLeftView() {
-        return mCenterLeftView;
+
+    /**
+     * 设置右侧文本的左侧的图片
+     *
+     * @param viewLocation     修改视图的位置
+     * @param drawableId       图片ID
+     * @param drawableLocation 图片位置
+     */
+    public void setTextViewDrawableResource(@ComponentLocationConstant.ComponentLocation int viewLocation, @DrawableRes int drawableId, @ComponentLocationConstant.ComponentLocation int drawableLocation) {
+        Drawable drawable = getViewDrawable(drawableId);
+        setViewVisiable(viewLocation);
+        switch (viewLocation) {
+            case ComponentLocationConstant.LEFT:
+                setTextViewDrawableWithLocation(mLeftTextView, drawable, drawableLocation);
+                break;
+            case ComponentLocationConstant.CENTER:
+                setTextViewDrawableWithLocation(mCenterTextView, drawable, drawableLocation);
+                break;
+            case ComponentLocationConstant.RIGHT:
+                setTextViewDrawableWithLocation(mRightTextView, drawable, drawableLocation);
+                break;
+            default:
+                break;
+        }
+
+    }
+
+
+    /**
+     * 设置左侧文本的颜色
+     *
+     * @param viewLocation 操作控件的位置
+     * @param colorId      eg: R.color.blue
+     */
+    public void setTextColor(@ComponentLocationConstant.ComponentLocation int viewLocation, @ColorRes int colorId) {
+        switch (viewLocation) {
+            case ComponentLocationConstant.LEFT:
+                setTextColor(mLeftTextView, colorId);
+                break;
+
+            case ComponentLocationConstant.CENTER_LEFT:
+                setTextColor(mCenterLeftView, colorId);
+                break;
+
+            case ComponentLocationConstant.CENTER:
+                setTextColor(mCenterTextView, colorId);
+                break;
+
+            case ComponentLocationConstant.CENTER_RIGHT:
+                setTextColor(mCenterRightView, colorId);
+                break;
+
+            case ComponentLocationConstant.RIGHT:
+                setTextColor(mRightTextView, colorId);
+                break;
+
+            default:
+                break;
+        }
+    }
+
+    /**
+     * 设置文本文字
+     * @param viewLocation 文本对应的位置
+     * @param contentId 文本的内容资源ID
+     * @return
+     */
+    public  CustomTittleView setViewText(@ComponentLocationConstant.ComponentLocation int viewLocation, @StringRes int contentId){
+        switch (viewLocation) {
+            case ComponentLocationConstant.LEFT:
+                setTextViewText(mLeftTextView, contentId);
+                break;
+            case ComponentLocationConstant.CENTER_LEFT:
+                setTextViewText(mCenterLeftView, contentId);
+                break;
+
+            case ComponentLocationConstant.CENTER:
+                setTextViewText(mCenterTextView, contentId);
+                break;
+
+            case ComponentLocationConstant.CENTER_RIGHT:
+                setTextViewText(mCenterRightView, contentId);
+                break;
+
+            case ComponentLocationConstant.RIGHT:
+                setTextViewText(mRightTextView, contentId);
+                break;
+
+            default:
+                break;
+        }
+
+        return this;
+    }
+    /**
+     * 设置文本文字
+     * @param viewLocation 文本对应的位置
+     * @param content 文本的内容资源ID
+     * @return
+     */
+    public  CustomTittleView setViewText(@ComponentLocationConstant.ComponentLocation int viewLocation,  String content){
+        if (null == content ) content = "";
+        switch (viewLocation) {
+            case ComponentLocationConstant.LEFT:
+                setTextViewText(mLeftTextView, content);
+                break;
+            case ComponentLocationConstant.CENTER_LEFT:
+                setTextViewText(mCenterLeftView, content);
+                break;
+
+            case ComponentLocationConstant.CENTER:
+                setTextViewText(mCenterTextView, content);
+                break;
+
+            case ComponentLocationConstant.CENTER_RIGHT:
+                setTextViewText(mCenterRightView, content);
+                break;
+
+            case ComponentLocationConstant.RIGHT:
+                setTextViewText(mRightTextView, content);
+                break;
+
+            default:
+                break;
+        }
+
+        return this;
+    }
+
+    /**
+     * 左侧的图片
+     *
+     * @param drawableID 图片对应的ID
+     */
+    public void setLeftViewLeftDrawable(@DrawableRes int drawableID) {
+        setVisibility(View.VISIBLE);
+        setTextViewDrawableResource(ComponentLocationConstant.LEFT, drawableID, ComponentLocationConstant.LEFT); // 设置左图标
+    }
+
+    public void setLeftViewTextAndLeftDrawable(String str, @DrawableRes int drawableID) {
+        setTextViewText(mLeftTextView, str);
+        setTextViewDrawableResource(ComponentLocationConstant.LEFT, drawableID, ComponentLocationConstant.LEFT); // 设置左图标
+
+    }
+
+    /**
+     * 设置右侧文本的图片 默认图片在左侧
+     *
+     * @param drawableID 图片对应的ID
+     */
+    public void setRightViewRightDrawable(@DrawableRes int drawableID) {
+        setVisibility(View.VISIBLE);
+        setTextViewDrawableResource(ComponentLocationConstant.RIGHT, drawableID, ComponentLocationConstant.RIGHT); // 设置左图标
+    }
+
+    /**
+     * 设置右侧文本 及 对应图标(图标默认在左侧)
+     *
+     * @param str        文本内容
+     * @param drawableID 文本对应的ID
+     */
+
+    public void setRightTextAndLeftDrawable(String str, @DrawableRes int drawableID) {
+
+        setVisibility(View.VISIBLE);
+
+        setTextViewText(mRightTextView,str);
+
+        setTextViewDrawableResource(ComponentLocationConstant.RIGHT, drawableID, ComponentLocationConstant.LEFT); // 设置左图标
+
+    }
+
+    /**
+     * 设置中间文本的右侧图片
+     *
+     * @param drawableID
+     */
+    public void setCenterViewRightDrawable(@DrawableRes int drawableID) {
+
+        setTextViewDrawableResource(ComponentLocationConstant.CENTER, drawableID, ComponentLocationConstant.RIGHT);
+    }
+
+    public void setCenterViewTextAndRightDrawable(String str,@DrawableRes int drawableID) {
+        setTextViewText(mCenterRightView, str);
+        setTextViewDrawableResource(ComponentLocationConstant.CENTER, drawableID, ComponentLocationConstant.RIGHT);
+    }
+
+
+    /**
+     * 显示默认的普通tittle   左侧返回按钮 点击返回  中间展示文字
+     *
+     * @param str
+     */
+    public void showDefaultTittle(String str) {
+        setVisibility(VISIBLE);
+        setTextViewText(mCenterTextView, str);
+        setLeftViewLeftDrawable(defaultLeftDrawableID);
+        mLeftTextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // TODO: 2017/5/19 此处根据不同APP处理 关闭页面 收起键盘
+                ((Activity) getContext()).finish();
+            }
+        });
     }
 
     /**
@@ -218,61 +440,6 @@ public final class CustomTittleView extends ConstraintLayout {
         }
     }
 
-
-    /**
-     * 设置文本的图片
-     *
-     * @param viewType         修改视图的位置  0:左边 1:中间  2:右边
-     * @param drawable         图片
-     * @param drawableLocation 0: left 1:right
-     *                         图片位置
-     */
-    public void setTextViewDrawable(int viewType, Drawable drawable,@ComponentLocationConstant.ComponentLocation int drawableLocation) {
-        drawable = getAvailableDrawable(drawable);
-        setViewVisiable(viewType);
-        switch (viewType) {
-            case ComponentLocationConstant.LEFT:
-                setTextViewDrawableWithLocation(mLeftTextView, drawable, drawableLocation);
-                break;
-            case ComponentLocationConstant.CENTER:
-                setTextViewDrawableWithLocation(mCenterTextView, drawable, drawableLocation);
-                break;
-            case ComponentLocationConstant.RIGHT:
-                setTextViewDrawableWithLocation(mRightTextView, drawable, drawableLocation);
-                break;
-            default:
-                break;
-        }
-
-    }
-
-    /**
-     * 设置右侧文本的左侧的图片
-     *
-     * @param viewType         修改视图的位置  0:左边 1:中间  2:右边
-     * @param drawableId       图片ID
-     * @param drawableLocation 0: left 1:right
-     *                         图片位置
-     */
-    public void setTextViewDrawableResource(int viewType, @DrawableRes int drawableId, @ComponentLocationConstant.ComponentLocation int drawableLocation) {
-        Drawable drawable = getViewDrawable(drawableId);
-        setViewVisiable(viewType);
-        switch (viewType) {
-            case ComponentLocationConstant.LEFT:
-                setTextViewDrawableWithLocation(mLeftTextView, drawable, drawableLocation);
-                break;
-            case ComponentLocationConstant.CENTER:
-                setTextViewDrawableWithLocation(mCenterTextView, drawable, drawableLocation);
-                break;
-            case ComponentLocationConstant.RIGHT:
-                setTextViewDrawableWithLocation(mRightTextView, drawable, drawableLocation);
-                break;
-            default:
-                break;
-        }
-
-    }
-
     /**
      * 根据图片位置 设置图片
      *
@@ -280,7 +447,7 @@ public final class CustomTittleView extends ConstraintLayout {
      * @param drawable
      * @param drawableLocation
      */
-    private void setTextViewDrawableWithLocation(TextView view, Drawable drawable,@ComponentLocationConstant.ComponentLocation int drawableLocation) {
+    private void setTextViewDrawableWithLocation(TextView view, Drawable drawable, @ComponentLocationConstant.ComponentLocation int drawableLocation) {
         switch (drawableLocation) {
             case ComponentLocationConstant.LEFT:
                 view.setCompoundDrawables(drawable, null, null, null); // 设置左图标
@@ -292,53 +459,7 @@ public final class CustomTittleView extends ConstraintLayout {
                 break;
 
         }
-
     }
-
-    /**
-     * 设置左侧文本的颜色
-     *
-     * @param colorId eg: R.color.blue
-     */
-    public void setLeftTextColorResourceId(@ColorRes int colorId) {
-        setTextColor(mLeftTextView, colorId);
-    }
-
-
-    /**
-     * 设置中间文本的颜色
-     *
-     * @param colorId eg: R.color.blue
-     */
-    public void setCenterTextColorResourceId(@ColorRes int colorId) {
-
-        setTextColor(mCenterTextView, colorId);
-
-    }
-
-    /**
-     * /**
-     * 设置右侧文本的颜色
-     *
-     * @param colorId eg: R.color.blue
-     */
-    public void setRightTextColorResourceId(@ColorRes int colorId) {
-
-        setTextColor(mRightTextView, colorId);
-
-    }
-
-
-    /**
-     * 设置中右侧文本的文字颜色
-     *
-     * @param resourceID eg:R.color.black
-     */
-    public void setCenterRightViewTextColorResourceId(@ColorRes int resourceID) {
-        setTextColor(mCenterRightView, resourceID);
-    }
-
-
 
     /**
      * 设置文本颜色的方法最终调用类
@@ -374,137 +495,6 @@ public final class CustomTittleView extends ConstraintLayout {
         return drawable;
     }
 
-
-    /**
-     * 获取左侧的view
-     *
-     * @return
-     */
-    public TextView getLeftView() {
-        return mLeftTextView;
-    }
-
-    /**
-     * 获取右侧的view
-     *
-     * @return
-     */
-    public TextView getRightView() {
-        mRightTextView.setVisibility(VISIBLE);
-        return mRightTextView;
-    }
-
-    /**
-     * 获取中间view
-     *
-     * @return
-     */
-    public TextView getCenterView() {
-        return mCenterTextView;
-    }
-
-    /**
-     * 获取中右侧的文本控件
-     *
-     * @return
-     */
-    public TextView getCenterRightTextView() {
-        return mCenterRightView;
-    }
-
-    /**
-     * 设置左侧的文字
-     *
-     * @param resouceID 文字对应的ID
-     */
-
-    public void setLeftTittleText(@StringRes int resouceID) {
-        setTextViewText(mLeftTextView, resouceID);
-    }
-
-    /**
-     * 设置左侧文字
-     *
-     * @param str
-     */
-    public void setLeftTittleText(String str) {
-        setTextViewText(mLeftTextView, str);
-    }
-
-    /**
-     * 设置右侧文本
-     *
-     * @param resouceID 文本对应的ID
-     */
-    public void setRightTitleText(@StringRes int resouceID) {
-        setTextViewText(mRightTextView, resouceID);
-    }
-
-    /**
-     * 设置右侧文本文字
-     *
-     * @param str
-     */
-    public void setRightTitleText(String str) {
-        setTextViewText(mRightTextView, str);
-
-    }
-
-    /**
-     * 设置中部文本
-     *
-     * @param resouceID
-     */
-    public void setCenterTitleText(@StringRes int resouceID) {
-        setTextViewText(mCenterTextView, resouceID);
-    }
-
-    /**
-     * 设置中部文本
-     *
-     * @param str
-     */
-    public void setCenterTitleText(String str) {
-        setTextViewText(mCenterTextView, str);
-    }
-
-    /**
-     * 设置中间右侧的文字文本
-     *
-     * @param content
-     */
-    public void setCenterRightViewText(String content) {
-        setTextViewText(mCenterRightView, content);
-
-    }
-
-    /**
-     * 设置中间右侧的文字文本
-     *
-     * @param contentID
-     */
-    public void setCenterRightViewText(@StringRes int contentID) {
-        setTextViewText(mCenterRightView, contentID);
-
-    }
-
-    /**
-     * 设置中间左侧的文字文本
-     * @param context
-     */
-    public void  setCenterLeftViewText(String context){
-        setTextViewText(mCenterLeftView,context);
-    }
-
-    /**
-     * 设置中间左侧的文字文本
-     * @param contentID
-     */
-
-    public void  setCenterLeftViewText(@StringRes int contentID){
-        setTextViewText(mCenterLeftView,contentID);
-    }
-
     /**
      * 设置文本的文字
      *
@@ -515,7 +505,7 @@ public final class CustomTittleView extends ConstraintLayout {
         setVisibility(VISIBLE);
         view.setText(str);
         view.setVisibility(VISIBLE);
-        if (TextUtils.isEmpty(str)){
+        if (TextUtils.isEmpty(str)) {
             view.setVisibility(GONE);
         }
     }
@@ -533,100 +523,29 @@ public final class CustomTittleView extends ConstraintLayout {
     }
 
     /**
-     * 左侧的图片
+     * 设置文本的图片
      *
-     * @param drawableID 图片对应的ID
+     * @param viewType         修改视图的位置  0:左边 1:中间  2:右边
+     * @param drawable         图片
+     * @param drawableLocation 图片位置
      */
-    public void setLeftViewLeftDrawable(@DrawableRes int drawableID) {
-        setVisibility(View.VISIBLE);
-        setTextViewDrawableResource(ComponentLocationConstant.LEFT, drawableID, ComponentLocationConstant.LEFT); // 设置左图标
-    }
+    private void setTextViewDrawable(int viewType, Drawable drawable, @ComponentLocationConstant.ComponentLocation int drawableLocation) {
+        drawable = getAvailableDrawable(drawable);
+        setViewVisiable(viewType);
+        switch (viewType) {
+            case ComponentLocationConstant.LEFT:
+                setTextViewDrawableWithLocation(mLeftTextView, drawable, drawableLocation);
+                break;
+            case ComponentLocationConstant.CENTER:
+                setTextViewDrawableWithLocation(mCenterTextView, drawable, drawableLocation);
+                break;
+            case ComponentLocationConstant.RIGHT:
+                setTextViewDrawableWithLocation(mRightTextView, drawable, drawableLocation);
+                break;
+            default:
+                break;
+        }
 
-    public void setLeftViewTextAndLeftDrawable(String str,int drawableID) {
-        setTextViewText(mLeftTextView,str);
-        setTextViewDrawableResource(ComponentLocationConstant.LEFT, drawableID, ComponentLocationConstant.LEFT); // 设置左图标
-
-    }
-
-    /**
-     * 设置右侧文本的图片 默认图片在左侧
-     *
-     * @param drawableID 图片对应的ID
-     */
-    public void setRightViewRightDrawable(@DrawableRes int drawableID) {
-        setVisibility(View.VISIBLE);
-        setTextViewDrawableResource(ComponentLocationConstant.RIGHT, drawableID, ComponentLocationConstant.RIGHT); // 设置左图标
-    }
-
-    /**
-     * 设置右侧文本 及 对应图标(图标默认在左侧)
-     *
-     * @param str      文本内容
-     * @param drawableID 文本对应的ID
-     */
-
-    public void setRightTextAndLeftDrawable(String str, @DrawableRes int drawableID) {
-
-        setVisibility(View.VISIBLE);
-
-        setRightTitleText(str);
-
-        setTextViewDrawableResource(ComponentLocationConstant.RIGHT, drawableID, ComponentLocationConstant.LEFT); // 设置左图标
-
-    }
-
-    /**
-     * 设置中间文本的右侧图片
-     *
-     * @param drawableID
-     */
-    public void setCenterViewRightDrawable(@DrawableRes int drawableID) {
-
-        setTextViewDrawableResource(ComponentLocationConstant.CENTER, drawableID, ComponentLocationConstant.RIGHT);
-    }
-
-    public void setCenterViewTextAndRightDrawable(String  str, int drawableID) {
-        setTextViewText(mCenterRightView, str);
-        setTextViewDrawableResource(ComponentLocationConstant.CENTER, drawableID, ComponentLocationConstant.RIGHT);
-    }
-
-
-    /**
-     * 显示默认的普通tittle   左侧返回按钮 点击返回  中间展示文字
-     *
-     * @param str
-     */
-    public void showDefaultTittle(String  str) {
-        setVisibility(VISIBLE);
-        setTextViewText(mCenterTextView, str);
-        setLeftViewLeftDrawable(defaultLeftDrawableID);
-        mLeftTextView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // TODO: 2017/5/19 此处根据不同APP处理 关闭页面 收起键盘
-                ((Activity) getContext()).finish();
-            }
-        });
-    }
-
-    /**
-     * 根据手机的分辨率从 dp 的单位 转成为 px(像素)
-     */
-    private int dip2px(float dpValue) {
-        final float scale =  getContext().getResources().getDisplayMetrics().density;
-        return (int) (dpValue * scale + 0.5f);
-    }
-    /**
-     * 将sp值转换为px值，保证文字大小不变
-     *
-     * @param spValue
-     * @param spValue
-     *            （DisplayMetrics类中属性scaledDensity）
-     * @return
-     */
-    private int sp2px( int spValue) {
-        final float fontScale = getContext().getResources().getDisplayMetrics().scaledDensity;
-        return (int) (spValue * fontScale + 0.5f);
     }
 
 }

@@ -8,6 +8,7 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 
+import gome.com.commontitlelibs.ComponentLocationConstant;
 import gome.com.commontitlelibs.CustomTittleView;
 
 public class MainActivity extends AppCompatActivity {
@@ -28,12 +29,12 @@ public class MainActivity extends AppCompatActivity {
 
 
         tittleView = findViewById(R.id.ctv_title);
-        tittleView.setCenterTitleText(centerTitle);
-        tittleView.setLeftTittleText(leftTitle);
+        tittleView.setViewText(ComponentLocationConstant.CENTER,centerTitle);
+        tittleView.setViewText(ComponentLocationConstant.LEFT,leftTitle);
         tittleView.setBackgroundColor(Color.GRAY);
         tittleView.setLeftViewLeftDrawable(R.drawable.ic_message_back_arrow);
 
-        tittleView.setCenterLeftViewText("关闭");
+        tittleView.setViewText(ComponentLocationConstant.CENTER_LEFT,"关闭");
         leftTextET = findViewById(R.id.et_leftviewtext);
         leftTextBtn = findViewById(R.id.btn_leftviewtext_commit);
 
@@ -62,35 +63,35 @@ public class MainActivity extends AppCompatActivity {
         leftTextBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                tittleView.setLeftTittleText(leftTextET.getText().toString().trim());
+                tittleView.setViewText(ComponentLocationConstant.LEFT,leftTextET.getText().toString().trim());
             }
         });
 
         centerLeftTextBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                tittleView.setCenterLeftViewText(centerLeftTextET.getText().toString().trim());
+                tittleView.setViewText(ComponentLocationConstant.CENTER_LEFT,centerLeftTextET.getText().toString().trim());
             }
         });
 
         centerTextBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                tittleView.setCenterTitleText(centerTextET.getText().toString().trim());
+                tittleView.setViewText(ComponentLocationConstant.CENTER,centerTextET.getText().toString().trim());
             }
         });
 
         centerRightTextBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                tittleView.setCenterRightViewText(centerRightTextET.getText().toString().trim());
+                tittleView.setViewText(ComponentLocationConstant.CENTER_RIGHT,centerRightTextET.getText().toString().trim());
             }
         });
 
         rightTextBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                tittleView.setRightTitleText(rightTextET.getText().toString().trim());
+                tittleView.setViewText(ComponentLocationConstant.RIGHT,rightTextET.getText().toString().trim());
             }
         });
 
