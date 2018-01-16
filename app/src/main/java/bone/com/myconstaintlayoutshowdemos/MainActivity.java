@@ -8,8 +8,8 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 
-import gome.com.commontitlelibs.ComponentLocationConstant;
-import gome.com.commontitlelibs.CustomTittleView;
+import bone.com.commontitlelibs.ComponentLocationConstant;
+import bone.com.commontitlelibs.CustomTittleView;
 
 public class MainActivity extends AppCompatActivity {
     private CustomTittleView tittleView;

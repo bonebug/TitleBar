@@ -5,7 +5,7 @@
     android:background="#00000000"
     >
 
-    <gome.com.gometextview.GomeTextView
+    <bone.com.commontitlelibs.CustomeTextView
         android:id="@+id/centertext"
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -14,8 +14,6 @@
         android:visibility="gone"
         android:singleLine="true"
         android:textColor="@color/black"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintWidth_default="wrap"
@@ -24,7 +22,7 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintHorizontal_bias="0.5" />
 
-    <gome.com.gometextview.GomeTextView
+    <bone.com.commontitlelibs.CustomeTextView
         android:id="@+id/base_left"
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -36,14 +34,13 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/centertext"
         app:layout_constraintWidth_default="wrap"
         app:layout_constraintHorizontal_bias="0"
         android:paddingLeft="8dp"
         android:visibility="gone"
-        />
+        android:paddingStart="8dp" />
 
-    <gome.com.gometextview.GomeTextView
+    <bone.com.commontitlelibs.CustomeTextView
         android:id="@+id/base_right"
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -63,7 +60,7 @@
         android:visibility="gone"
         />
 
-    <gome.com.gometextview.GomeTextView
+    <bone.com.commontitlelibs.CustomeTextView
         android:id="@+id/centertext_right"
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -81,7 +78,7 @@
         android:layout_marginRight="5dp"
         app:layout_constraintHorizontal_bias="1"
         />
-    <gome.com.gometextview.GomeTextView
+    <bone.com.commontitlelibs.CustomeTextView
         android:id="@+id/centertext_left"
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -106,10 +103,8 @@
         android:layout_height="0dp"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         />
 

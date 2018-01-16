@@ -23,7 +23,7 @@
         android:background="#45bdbdbd"
         />
 
-    <gome.com.commontitlelibs.CustomTittleView
+    <bone.com.commontitlelibs.CustomTittleView
         android:id="@+id/ctv_title"
         android:layout_width="0dp"
         android:layout_height="45dp"

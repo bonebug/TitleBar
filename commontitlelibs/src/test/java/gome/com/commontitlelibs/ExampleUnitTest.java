@@ -1,4 +1,4 @@
-package gome.com.commontitlelibs;
+package bone.com.commontitlelibs;
 
 import org.junit.Test;
 

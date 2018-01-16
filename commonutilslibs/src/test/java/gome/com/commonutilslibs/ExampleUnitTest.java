@@ -1,4 +1,4 @@
-package gome.com.commonutilslibs;
+package bone.com.commonutilslibs;
 
 import org.junit.Test;
 
